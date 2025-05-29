@@ -10,7 +10,7 @@ import {ErrorMessage} from "./register";
 import {setUser} from "../store/user.slice";
 import { useDispatch } from "react-redux"
 
-export function Login(){
+export default function Login(){
     const LoginSchema = z.object({
         email: z.string().email("Email is invalid").nonempty("Email is required"),
         password: z.string().min(8, "Password must be at least 8 characters long").nonempty("Password is required"),

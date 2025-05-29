@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { z } from "zod";
 import { useNavigate } from "react-router";
 
-const RegisterSchema = z.object({
+const  RegisterSchema = z.object({
     email: z.string().email("Email is invalid").nonempty("Email is required"),
     password: z.string().min(8, "Password must be at least 8 characters long").nonempty("Password is required"),
     confirmPassword: z.string().nonempty("Confirm Password is required"),
@@ -27,7 +27,7 @@ const RegisterSchema = z.object({
     }
 });
 
-export function ErrorMessage({ message }) {
+export  function ErrorMessage({ message }) {
     return (
         <>
             <div className="text-red-500 text-sm">
@@ -36,7 +36,7 @@ export function ErrorMessage({ message }) {
         </>
     )
 }
-export function Register() {
+export default function Register() {
     const navigate = useNavigate();
 
 

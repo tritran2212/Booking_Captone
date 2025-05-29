@@ -1,8 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import { Home } from "../pages/home"
-import { Login } from "../pages/login";
-import { Register } from "../pages/register";
+
+
 import { BaseTemplates } from "../templates/base/component/baseTemplates";
+
+import{ Component , lazy} from "react";
+const Login = lazy(()=> import('../pages/login'));
+const Register = lazy(()=>import ('../pages/register'));
+const PhongTheoViTri = lazy(()=> import ("../pages/ChitietPhong/phongtheovitri"));
 export const router1 = createBrowserRouter([
 
 
@@ -10,11 +15,18 @@ export const router1 = createBrowserRouter([
     {
 
         element: <BaseTemplates />,
-        children: [{
+        children: [
+     {
             path: "/",
-            element: <Home />
+            Component:Home
 
         },
+        {
+
+            
+            path:"vitri/:tenViTri",
+            element:<PhongTheoViTri/>
+        }
 
         ]
     },

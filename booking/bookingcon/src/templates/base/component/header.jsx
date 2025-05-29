@@ -19,7 +19,7 @@ function LogoIcon (){
 
     )
 }
-export function Header() {
+export   function Header() {
     const navigate = useNavigate();
     const dispath = useDispatch();
     const user = useSelector((store)=>{

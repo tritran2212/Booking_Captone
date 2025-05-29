@@ -3,7 +3,7 @@ import { Twitter } from 'lucide-react';
 import { Camera } from 'lucide-react';
 import { Globe } from 'lucide-react';
 
-export  function Footer(){
+export   function Footer(){
 
     return (
 

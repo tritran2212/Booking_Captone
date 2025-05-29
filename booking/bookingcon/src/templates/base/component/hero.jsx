@@ -3,12 +3,14 @@ import { getAllVitriAPI } from "../../../services/vitri.service";
 import { Search } from 'lucide-react';
 import "./hero.css";
 import { MapPin } from 'lucide-react';
+import { useNavigate } from "react-router";
 export function Hero() {
     const [vitriList, setvitriList] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [showSuggestions, setShowSuggestions] = useState(false);
-
-    useEffect(() => {
+    const [selectedVitriId, setSelectedVitriId] = useState(null);
+    const navigate = useNavigate();
+     useEffect(() => {
         getAllVitriAPI({
             headers: {
                 tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
@@ -24,6 +26,13 @@ export function Hero() {
         (item) =>
             item.tenViTri?.toLowerCase().includes(searchText.toLowerCase())
     );
+    const handleSearch = () => {
+        if (selectedVitriId) {
+            navigate(`/vitri/${selectedVitriId}`);
+        } else {
+            alert("Vui lòng chọn vị trí từ danh sách gợi ý!");
+        }
+    };
 
     return (
         <div className="relative w-full h-[520px] md:h-[650px] flex flex-col justify-end bg-black overflow-hidden py-8">
@@ -53,26 +62,28 @@ export function Hero() {
                             onChange={e => {
                                 setSearchText(e.target.value);
                                 setShowSuggestions(true);
+                                 setSelectedVitriId(null);
                             }}
                             onFocus={() => setShowSuggestions(true)}
                             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                         />
                         {/* Menu gợi ý */}
                         {showSuggestions && searchText && filteredVitri.length > 0 && (
-                            <div className="absolute top-16 left-0 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto z-20 border border-gray-200">
+                            <div className="absolute top-16 left-0 w-full bg-white rounded-xl shadow-2xl max-h-72 overflow-y-auto z-20 border border-gray-200">
                                 {filteredVitri.map((item, idx) => (
                                     <div
-                                        key={item.id || idx}
-                                        className="flex items-center px-3 py-2 hover:bg-yellow-100 cursor-pointer transition"
+                                        key={String(item.id) || idx}
+                                        className="flex items-center px-5 py-4 hover:bg-yellow-200 cursor-pointer transition rounded-lg mx-2 my-1 text-lg font-medium text-gray-800 gap-3"
                                         onMouseDown={() => {
                                             setSearchText(
                                                 `${item.tenViTri}, ${item.tinhThanh}, ${item.quocGia}`
                                             );
+                                            setSelectedVitriId(item.id);
                                             setShowSuggestions(false);
                                         }}
                                     >
-                                        <span className="mr-2 text-gray-500">
-                                            <MapPin size={16} />
+                                        <span className="text-pink-500">
+                                            <MapPin size={26} />
                                         </span>
                                         <span>
                                             {item.tenViTri}, {item.tinhThanh}, {item.quocGia}
@@ -98,7 +109,7 @@ export function Hero() {
                         <span className="text-base text-gray-500 font-medium">Thêm khách</span>
                     </div>
                     {/* Nút tìm kiếm */}
-                    <button className="ml-4 bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 flex items-center justify-center shadow-lg transition-all" style={{marginRight: 8, marginLeft: 8}}>
+                    <button onClick={handleSearch} className="ml-4 bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 flex items-center justify-center shadow-lg transition-all" style={{marginRight: 8, marginLeft: 8}}>
                         <Search size={22} />
                     </button>
                 </div>
@@ -111,4 +122,3 @@ export function Hero() {
     );
 }
 
-5

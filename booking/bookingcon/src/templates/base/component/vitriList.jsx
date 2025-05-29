@@ -41,19 +41,17 @@ export function VitriList() {
                         className="flex items-center bg-white rounded-xl shadow p-3"
                     >
                         <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-200 mr-3">
-                            {item.hinhAnh ? (
+                         
                                 <img
                                     src={item.hinhAnh}
                                     className="object-cover w-full h-full"
                                 />
-                            ) : (
-                                <span className="text-gray-400 text-sm">No Image</span>
-                            )}
+                           
                         </div>
                         <div>
-                            <div className="font-semibold text-gray-800 text-sm truncate w-28">{item.tenViTri || "Không có tên vị trí"}</div>
+                            <div className="font-semibold text-gray-800 text-sm truncate w-28">{item.tenViTri }</div>
                             <div className="text-gray-500 text-xs mt-1 truncate w-28">
-                                {item.tinhThanh || "Không có tỉnh thành"}
+                                {item.tinhThanh }
                             </div>
                         </div>
                     </div>
