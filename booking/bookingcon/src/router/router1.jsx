@@ -24,7 +24,7 @@ export const router1 = createBrowserRouter([
         {
 
             
-            path:"vitri/:tenViTri",
+            path:"vitri/:maViTri",
             element:<PhongTheoViTri/>
         }
 
