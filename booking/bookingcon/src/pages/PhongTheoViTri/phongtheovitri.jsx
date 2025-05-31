@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router"; 
 import { getLayPhongTheoViTriAPI } from "../../services/vitri.service";
 
 export default function PhongTheoViTri() {
+    const { maViTri } = useParams(); 
     const [phongList, setPhongList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const  navigate = useNavigate();
     useEffect(() => {
-        getLayPhongTheoViTriAPI(1)
+        if (!maViTri) {
+            setError("Không tìm thấy mã vị trí.");
+            setLoading(false);
+            return;
+        }
+
+        getLayPhongTheoViTriAPI(maViTri) 
             .then((response) => {
                 if (response.data && Array.isArray(response.data.content)) {
                     setPhongList(response.data.content);
@@ -24,7 +32,7 @@ export default function PhongTheoViTri() {
             .finally(() => {
                 setLoading(false);
             });
-    }, []);
+    }, [maViTri]); // Thêm maViTri vào dependency array
 
     if (loading) {
         return <div className="p-6 text-center">Đang tải dữ liệu...</div>;
@@ -48,6 +56,7 @@ export default function PhongTheoViTri() {
                        <div
                        key={phong.id}
                        className="flex flex-row border rounded-xl shadow-lg overflow-hidden bg-white mb-6 items-center h-60 p-8"
+                        onClick={() => navigate(`/chi-tiet-phong/${phong.id}`)} // Chuyển hướng khi click vào card
                      >
                        {/* Ảnh bên trái nhỏ lại, có border, margin phải */}
                        <img
