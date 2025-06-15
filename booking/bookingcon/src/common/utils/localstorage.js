@@ -13,16 +13,17 @@ export const managerStorage = {
     get(key) {
         const result = localStorage.getItem(key);
 
-        if (result === "undefined") {
-            console.warn(`managerStorage: Giá trị của key '${key}' là 'undefined', trả về null`);
+        if (result === null || result === "undefined") {
+            console.warn(`managerStorage: Giá trị của key '${key}' là null hoặc 'undefined', trả về null`);
             return null;
         }
 
         try {
             // Kiểm tra nếu giá trị là JSON hợp lệ
-            return result && result.startsWith("{") || result.startsWith("[")
-                ? JSON.parse(result)
-                : result; // Trả về giá trị gốc nếu không phải JSON
+            if (result.startsWith("{") || result.startsWith("[")) {
+                return JSON.parse(result);
+            }
+            return result; // Trả về giá trị gốc nếu không phải JSON
         } catch (error) {
             console.error("Error parsing:", error);
             return result; // Trả về giá trị gốc nếu parse thất bại

@@ -6,6 +6,7 @@ const Login = lazy(()=> import('../pages/login'));
 const Register = lazy(()=>import ('../pages/register'));
 const PhongTheoViTri = lazy(()=> import ("../pages/PhongTheoViTri/phongtheovitri"));
 const ChiTietPhong = lazy(()=> import ("../pages/ChiTietPhong/chitietphong"));
+const  HoSoKhachHang =lazy(()=> import ("../templates/base/component/hosocanhan"));
 export const router1 = createBrowserRouter([
     {
 
@@ -27,6 +28,10 @@ export const router1 = createBrowserRouter([
             path:"chi-tiet-phong/:id",
             element:<ChiTietPhong/>
 
+        }
+        ,{
+            path:"profile/:id",
+            element:<HoSoKhachHang/>
         }
         ]
     },

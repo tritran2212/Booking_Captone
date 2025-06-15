@@ -1,7 +1,7 @@
 import { Globe } from 'lucide-react';
 import { AlignJustify } from 'lucide-react';
 import { LogIn } from 'lucide-react';
-import { use, useState } from 'react';
+import {  useState } from 'react';
 import { useNavigate } from 'react-router';
 import { managerStorage } from '../../../common/utils/localstorage';
 import { KEY_ACCESS_TOKEN } from '../../../common/constants';
@@ -73,7 +73,7 @@ export   function Header() {
                     <p className="hidden md:inline cursor-pointer text-sm">Đón tiếp khách</p>
                     {user !== null ? (
                         <>
-                            <User className="h-6 w-6 cursor-pointer" />
+                            <User className="h-6 w-6 cursor-pointer" onClick={() => navigate(`/profile/${user?.id}`)} />
                             <div
                                 className="relative flex items-center space-x-2 border-2 p-2 rounded-full cursor-pointer bg-white text-gray-500"
                                 onClick={handleIconClick}
