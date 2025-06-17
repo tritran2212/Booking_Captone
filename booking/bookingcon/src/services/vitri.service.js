@@ -66,9 +66,38 @@ export function getUserAPI(id) {
         }
     });
 }
-export function getdatPhongAPI(id) {
-    return axiosWithAuthen(`/api/dat-phong/lay-theo-nguoi-dung/${id}`, {
+export function getdatPhongAPI(maNguoiDung) {
+    return axiosWithAuthen(`/api/dat-phong/lay-theo-nguoi-dung/${maNguoiDung}`, {
         headers: {
+            tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
+        }
+    });
+}
+
+export function getPhongThueAPI(){
+
+    return axiosWithAuthen("/api/phong-thue",{
+            headers: {
+            tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
+        }
+
+    })
+}
+
+
+export function deletePhongThueAPI(id) {
+    return axiosWithAuthen.delete(`/api/phong-thue/${id}`, {
+        headers: {
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMDAyIiwiZW1haWwiOiJob25neWVuMjIxMkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NTAxMzM0NDUsImV4cCI6MTc1MDczODI0NX0.TBPlTYGTuSSoLewQkc4j5gK4ptbHmlwdRXPIzoZIpVk",
+            tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
+        }
+    });
+}
+
+export function updatePhongThueAPI(id, data) {
+    return axiosWithAuthen.put(`/api/phong-thue/${id}`, data, {
+        headers: {
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMDAyIiwiZW1haWwiOiJob25neWVuMjIxMkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NTAxMzM0NDUsImV4cCI6MTc1MDczODI0NX0.TBPlTYGTuSSoLewQkc4j5gK4ptbHmlwdRXPIzoZIpVk",
             tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
         }
     });

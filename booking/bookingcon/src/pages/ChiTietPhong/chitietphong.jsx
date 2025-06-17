@@ -86,29 +86,43 @@ export default function ChiTietPhong() {
     }, [id]);
 
     const handleDatPhong = () => {
-        if (!checkInDate || !checkOutDate) {
-            alert("Vui lòng chọn ngày nhận và trả phòng.");
-            return;
-        }
-        const ngayDen = new Date(checkInDate);
-        const ngayDi = new Date(checkOutDate);
-        const soNgay = tinhSoNgay(ngayDen, ngayDi);
-        if (soNgay <= 0) {
-            alert("Ngày trả phòng phải sau ngày nhận phòng!");
-            return;
-        }
-        const dataDatPhong = taoDataDatPhong({
-            id,
-            phong,
-            checkInDate,
-            checkOutDate,
-            soLuongKhach,
-            maNguoiDung: 0, // Thay bằng mã người dùng thực tế
-        });
-        postDatPhongAPI(dataDatPhong)
-            .then(() => alert("Đặt phòng thành công!"))
-            .catch(() => alert("Đặt phòng thất bại. Vui lòng thử lại."));
-    };
+    if (!checkInDate || !checkOutDate) {
+        alert("Vui lòng chọn ngày nhận và trả phòng.");
+        return;
+    }
+
+    const ngayDen = new Date(checkInDate);
+    const ngayDi = new Date(checkOutDate);
+    const soNgay = tinhSoNgay(ngayDen, ngayDi);
+
+    if (soNgay <= 0) {
+        alert("Ngày trả phòng phải sau ngày nhận phòng!");
+        return;
+    }
+
+    // Lấy thông tin người dùng từ localStorage hoặc sessionStorage
+    const user = JSON.parse(localStorage.getItem("user")) || null;
+
+    if (!user || !user.id) {
+        alert("Vui lòng đăng nhập để đặt phòng.");
+        return;
+    }
+
+    const maNguoiDung = user.id; // Lấy id của người dùng đã đăng nhập
+
+    const dataDatPhong = taoDataDatPhong({
+        id,
+        phong,
+        checkInDate,
+        checkOutDate,
+        soLuongKhach,
+        maNguoiDung, // Sử dụng id của người dùng đã đăng nhập
+    });
+
+    postDatPhongAPI(dataDatPhong)
+        .then(() => alert("Đặt phòng thành công!"))
+        .catch(() => alert("Đặt phòng thất bại. Vui lòng thử lại."));
+};
 
     if (loading) {
         return <div className="p-6 text-center">Đang tải dữ liệu...</div>;

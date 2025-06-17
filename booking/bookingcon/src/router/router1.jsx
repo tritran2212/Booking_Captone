@@ -7,6 +7,12 @@ const Register = lazy(()=>import ('../pages/register'));
 const PhongTheoViTri = lazy(()=> import ("../pages/PhongTheoViTri/phongtheovitri"));
 const ChiTietPhong = lazy(()=> import ("../pages/ChiTietPhong/chitietphong"));
 const  HoSoKhachHang =lazy(()=> import ("../templates/base/component/hosocanhan"));
+
+const  Admin = lazy(()=>import ("../pages/ADMIN/admin"));
+const QuanLiDatPhong = lazy(()=>import ("../pages/ADMIN/quanlidatphong"));
+const QuanLiNguoiDung = lazy(()=>import ("../pages/ADMIN/quanlinguoidung"));
+const QuanLiThongTinViTri = lazy(()=>import ("../pages/ADMIN/quanlithongtinvitri"));
+const QuanLiThongTinPhong = lazy(()=>import ("../pages/ADMIN/quanlithongtinphong"));
 export const router1 = createBrowserRouter([
     {
 
@@ -33,6 +39,25 @@ export const router1 = createBrowserRouter([
             path:"profile/:id",
             element:<HoSoKhachHang/>
         }
+        ,{
+
+            path:"/admin",
+            element:<Admin/>
+        },{
+
+            path:"/admin/QuanLyDatPhong",
+            element:<QuanLiDatPhong/>
+        },{
+            path:"/admin/QuanLyNguoiDung",
+            element:<QuanLiNguoiDung/>
+        },{
+            path:"/admin/QuanLyThongTinViTri",
+            element:<QuanLiThongTinViTri/>
+        },{
+            path:"/admin/QuanLyThongTinPhong",
+            element:<QuanLiThongTinPhong/>
+        }
+
         ]
     },
 
