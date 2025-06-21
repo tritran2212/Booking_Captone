@@ -83,22 +83,39 @@ export function getPhongThueAPI(){
 
     })
 }
-
+// quản lí  phòng
 
 export function deletePhongThueAPI(id) {
     return axiosWithAuthen.delete(`/api/phong-thue/${id}`, {
         headers: {
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMDAyIiwiZW1haWwiOiJob25neWVuMjIxMkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NTAxMzM0NDUsImV4cCI6MTc1MDczODI0NX0.TBPlTYGTuSSoLewQkc4j5gK4ptbHmlwdRXPIzoZIpVk",
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMDAyIiwiZW1haWwiOiJob25neWVuMjIxMkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NTAzOTQ0OTksImV4cCI6MTc1MDk5OTI5OX0.mCvx-QSyIiuOeDd9ktGTsy20t6KEIDw6L_SzZZRT5nk",
             tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
         }
     });
 }
 
 export function updatePhongThueAPI(id, data) {
-    return axiosWithAuthen.put(`/api/phong-thue/${id}`, data, {
+    const token = localStorage.getItem('token');
+    return axiosWithAuthen.put(
+        `/api/phong-thue/${id}`,
+        data, // truyền dữ liệu cập nhật từ form
+        {
+            headers: {
+                token: token,
+                tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
+            }
+        }
+    );
+}
+
+export function addPhongThueAPI(data){
+    const token = localStorage.getItem('token');
+    return  axiosWithAuthen.post("/api/phong-thue", data,{
         headers: {
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMDAyIiwiZW1haWwiOiJob25neWVuMjIxMkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NTAxMzM0NDUsImV4cCI6MTc1MDczODI0NX0.TBPlTYGTuSSoLewQkc4j5gK4ptbHmlwdRXPIzoZIpVk",
+            token: token,
             tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
         }
-    });
+    })
 }
+
+// quản lí đặt phòng
