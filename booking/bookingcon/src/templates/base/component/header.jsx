@@ -63,14 +63,14 @@ export   function Header() {
                     <LogoIcon />
                 </div>
                 {/* Middle */}
-                <div className="hidden md:flex items-center justify-center space-x-6 text-sm text-white py-2 bg-black">
+                <div className="hidden md:flex items-center justify-center space-x-6 text-xl text-white py-2 bg-black">
                     <p className="cursor-pointer border-b-2 border-transparent hover:border-gray-400 pb-1 transition duration-100 ease-out">Nơi ở</p>
                     <p className="cursor-pointer border-b-2 border-transparent hover:border-gray-400 pb-1 transition duration-100 ease-out">Trải nghiệm</p>
                     <p className="cursor-pointer border-b-2 border-transparent hover:border-gray-400 pb-1 transition duration-100 ease-out">Trải nghiệm trực tuyến</p>
                 </div>
                 {/* Right */}
                 <div className="flex items-center space-x-4 justify-end text-white">
-                    <p className="hidden md:inline cursor-pointer text-sm">Đón tiếp khách</p>
+                    <p className="hidden md:inline cursor-pointer text-xl">Đón tiếp khách</p>
                     {user !== null ? (
                         <>
                             <User className="h-6 w-6 cursor-pointer" onClick={() => navigate(`/profile/${user?.id}`)} />

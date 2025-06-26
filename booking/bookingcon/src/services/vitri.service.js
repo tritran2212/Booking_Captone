@@ -127,9 +127,11 @@ export function deleteDatPhongAPI(id) {
     });
 }
 
-export function putDatPhongAPI(id){
-    return axiosWithAuthen.put(`/api/dat-phong/${id}`, {
+export function putDatPhongAPI(id,data){
+    const token = localStorage.getItem('token');
+    return axiosWithAuthen.put(`/api/dat-phong/${id}`,data, {
         headers: {
+            token: token,
             tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCBETiAxNCIsIkhldEhhblN0cmluZyI6IjE1LzEwLzIwMjUiLCJIZXRIYW5UaW1lIjoiMTc2MDQ4NjQwMDAwMCIsIm5iZiI6MTczMDMzMjgwMCwiZXhwIjoxNzYwNjU5MjAwfQ.P0-adChuwGt_dA8kRO_sxBjpC2NVGZr7B0F_3jou79s"
         }
     });

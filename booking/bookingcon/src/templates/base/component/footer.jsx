@@ -12,8 +12,8 @@ export   function Footer(){
                <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-8">
                   
                    <div>
-                       <h5 className="font-bold text-gray-800 mb-4">GIỚI THIỆU</h5>
-                       <ul className="space-y-2 text-sm">
+                       <h5 className="font-bold text-gray-800 mb-4 text-[18px]">GIỚI THIỆU</h5>
+                       <ul className="space-y-2 text-sm text-[18px]">
                            <li><a href="#" className="hover:underline">Phương thức hoạt động của Airbnb</a></li>
                            <li><a href="#" className="hover:underline">Trang tin tức</a></li>
                            <li><a href="#" className="hover:underline">Nhà đầu tư</a></li>
@@ -29,8 +29,8 @@ export   function Footer(){
 
                   
                    <div>
-                       <h5 className="font-bold text-gray-800 mb-4">CỘNG ĐỒNG</h5>
-                       <ul className="space-y-2 text-sm">
+                       <h5 className="font-bold text-gray-800 mb-4 text-[18px]">CỘNG ĐỒNG</h5>
+                       <ul className="space-y-2 text-[18px] ">
                            <li><a href="#" className="hover:underline">Sự đa dạng và Cảm giác thân thuộc</a></li>
                            <li><a href="#" className="hover:underline">Tiện nghi phù hợp cho người khuyết tật</a></li>
                            <li><a href="#" className="hover:underline">Đối tác liên kết Airbnb</a></li>
@@ -42,8 +42,8 @@ export   function Footer(){
 
                   
                    <div>
-                       <h5 className="font-bold text-gray-800 mb-4">ĐÓN TIẾP KHÁCH</h5>
-                       <ul className="space-y-2 text-sm">
+                       <h5 className="font-bold text-gray-800 mb-4 ">ĐÓN TIẾP KHÁCH</h5>
+                       <ul className="space-y-2 text-[18px]">
                             <li><a href="#" className="hover:underline">Cho thuê nhà</a></li>
                            <li><a href="#" className="hover:underline">Tổ chức Trải nghiệm trực tuyến</a></li>
                            <li><a href="#" className="hover:underline">Tổ chức trải nghiệm</a></li>
@@ -56,7 +56,7 @@ export   function Footer(){
                 
                    <div>
                        <h5 className="font-bold text-gray-800 mb-4">HỖ TRỢ</h5>
-                       <ul className="space-y-2 text-sm">
+                       <ul className="space-y-2 text-[18px]">
                             <li><a href="#" className="hover:underline">Biện pháp ứng phó với đại dịch COVID-19 của chúng tôi</a></li>
                            <li><a href="#" className="hover:underline">Trung tâm trợ giúp</a></li>
                            <li><a href="#" className="hover:underline">Các tùy chọn hủy</a></li>
@@ -70,25 +70,25 @@ export   function Footer(){
                <div className="max-w-screen-lg mx-auto mt-8 pt-8 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between px-8 text-sm text-gray-600">
                   
                    <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-                       <span>© 2021 Airbnb, Inc. All rights reserved</span>
+                       <span >© 2021 Airbnb, Inc. All rights reserved</span>
                        <span>·</span>
                        <a href="#" className="hover:underline">Quyền riêng tư</a>
                        <span>·</span>
-                       <a href="#" className="hover:underline">Điều khoản</a>
+                       <a href="#" className="hover:underline ">Điều khoản</a>
                        <span>·</span>
-                       <a href="#" className="hover:underline">Sơ đồ trang web</a>
+                       <a href="#" className="hover:underline ">Sơ đồ trang web</a>
                    </div>
 
                   
-                   <div className="flex items-center space-x-6 mt-4 md:mt-0">
+                   <div className="flex items-center space-x-6 mt-4 md:mt-0 text-[16px]">
                      
-                       <div className="flex items-center space-x-2">
+                       <div className="flex items-center space-x-2 ">
                            <Globe className="h-5 w-5" />
-                           <a href="#" className="hover:underline">Tiếng Việt(VN)</a>
+                           <a href="#" className="hover:underline text-[16px] ">Tiếng Việt(VN)</a>
                            <span>·</span>
-                           <a href="#" className="hover:underline">$ USD</a>
+                           <a href="#" className="hover:underline  text-[16px]">$ USD</a>
                        </div>
-                       <div className="flex items-center space-x-4">
+                       <div className="flex items-center space-x-4  text-[16px]">
                            <a href="#"><Facebook className="h-5 w-5 hover:text-gray-800"/></a>
                            <a href="#"><Twitter className="h-5 w-5 hover:text-gray-800"/></a>
                            <a href="#"><Camera className="h-5 w-5 hover:text-gray-800"/></a>
